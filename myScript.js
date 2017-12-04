@@ -3,12 +3,13 @@
 function search() {
 	var liquidSearch = $("#liquidSearch");
 	var search = $("#search");
-	if (liquidSearch !=='') {
+	if (liquidSearch.val()!='') {
 		search.html('You are searching for ');
 		$("#filter").show();
 		}
-	else {
+	else if(liquidSearch.val()=="")
+	 {
+		$("#filter").hide('slide');
 		search.html('');
-		$("#filter").hide();
 		};
 }
