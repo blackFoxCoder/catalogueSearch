@@ -8,9 +8,9 @@
 
 <body data-ng-init="products=[{item:'Pen',price:'$0.5'},{item:'Book',price:'$3.0'},{item:'eraser',price:'$0.2'},{item:'pencil',price:'$0.3'},{item:'correction fluid',price:'$5'},{item:'marker',price:'$6'},{item:'ink',price:'$2'},{item:'socks',price:'$15'},{item:'Hankerchief',price:'$15'},{item:' complete uniform',price:'$150'}]">
 	<h2>Use the search box to browse our catalogue</h2>
-    <input type="text" data-ng-model="name" name="item" />
+    <input type="text" data-ng-model="item" name="item" />
     <ol>
-    <li data-ng-repeat="product in products">{{product.item}}</li>
+    <li data-ng-repeat="product in products | filter:item">{{product.item | uppercase}} : <strong>{{product.price}}</strong></li>
     </ol>
 </body>
 </html>
