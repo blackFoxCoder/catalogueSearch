@@ -6,18 +6,39 @@
 <script src="angular.min.js"></script>
 <script src="jquery-3.1.1.js"></script>
 <script src="bootstrap/bootstrap.js"></script>
-<link href="bootstrap/bootstrap.css" />
+<link rel="stylesheet" href="bootstrap/bootstrap.css" />
 <link rel="stylesheet" href="myStyle.css" />
 
 </head>
 
-<body data-ng-init="products=[{item:'Pen',price:'$0.5'},{item:'Book',price:'$3.0'},{item:'eraser',price:'$0.2'},{item:'pencil',price:'$0.3'},{item:'correction fluid',price:'$5'},{item:'marker',price:'$6'},{item:'ink',price:'$2'},{item:'socks',price:'$15'},{item:'Hankerchief',price:'$15'},{item:' complete uniform',price:'$150'}]">
-	<h2>Use the search box to browse our catalogue</h2>
-    <input type="text" id="liquidSearch" onkeyup="search()" data-ng-model="item" name="item" />
-    <p><span id="search"></span> <span>{{item | uppercase}}</span><p>
-    <ol>
+<body class="container-fluid" data-ng-init="products=[{item:'Pen',price:'$0.5'},{item:'Book',price:'$3.0'},{item:'eraser',price:'$0.2'},{item:'pencil',price:'$0.3'},{item:'correction fluid',price:'$5'},{item:'marker',price:'$6'},{item:'ink',price:'$2'},{item:'socks',price:'$15'},{item:'Hankerchief',price:'$15'},{item:' complete uniform',price:'$150'}]">
+<img id="catchImg" src="Office-Administration.jpg" />
+<div class="container">
+<div class="col-sm-3">
+	<h4>Use the search box to browse our catalogue</h4>
+    <input type="text" id="liquidSearch" onkeyup="search()" data-ng-model="item" name="item" /><span class="glyphicon glyphicon-search"></span>
+    <p><span id="search"></span> <span>{{item | uppercase}}</span></p>
+    <ol id="filter">
     <li data-ng-repeat="product in products | filter:item">{{product.item | uppercase}} : <strong>{{product.price}}</strong></li>
     </ol>
+ </div>
+ <div class="col-sm-7" id="main">
+<h3 align="center">Welcome to our Market Place</h3>
+<p>We sell very important items, mostly items that can be used in a regular student schooling environment. To answer and help the entire student and teacher's populace alike in the world at large, we have decided to make eCommerce quite simpler. We would be adding products to our catalogue while we work to make the product catalogue look simpler.</p>
+<p>You can see a list of products in our catalogue below;</p>
+<ol>
+<li data-ng-repeat="product in products">{{product.item | uppercase}}</li>
+</ol>
+<p>Use the search box to the left to confirm our prices, more products would be added soon.</p>
+<code>
+Thanks,
+Manager.
+</code>
+ </div>
+ <div class="col-sm-2">
+ <img src="friendlyBack.png" id="back" />
+ </div>
+ </div>
     <script src="myScript.js"></script>
 </body>
 </html>
